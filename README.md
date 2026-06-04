@@ -1,2 +1,0 @@
-# bookkeeping
-The Pierres Financial
