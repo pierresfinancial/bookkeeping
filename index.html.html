@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pierres Financial | Reliable Bookkeeping & Financial Organization</title>
+    <meta name="description" content="Professional, reliable bookkeeping and financial organization for small businesses, contractors, and startups in Texas and the DFW area.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for clean professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #0B2240;
+            --navy-light: #15355F;
+            --gold: #C5A059;
+            --gold-hover: #B38F48;
+            --white: #FFFFFF;
+            --off-white: #F8FAFC;
+            --dark-gray: #1E293B;
+            --slate-gray: #64748B;
+            --border-color: #E2E8F0;
+            --max-width: 1200px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 7rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-sub-brand {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            color: var(--slate-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 1.5rem 0;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header.scrolled .logo h1, header.scrolled .nav-links a {
+            color: var(--navy);
+        }
+
+        header.scrolled .btn-nav {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+        
+        header.scrolled .btn-nav:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .btn-nav {
+            background-color: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--navy);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(11, 34, 64, 0.85), rgba(11, 34, 64, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1800') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tagline {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text .tagline {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--slate-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .about-feature-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* --- FOUNDER SECTION --- */
+        .founder-section {
+            background-color: var(--off-white);
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .founder-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .founder-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-text p {
+            color: var(--slate-gray);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(11, 34, 64, 0.05);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(11, 34, 64, 0.05);
+            color: var(--navy);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--navy);
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- WHO WE HELP SECTION --- */
+        .who-we-help {
+            background-color: var(--off-white);
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .industry-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-top: 0.25rem;
+        }
+
+        .industry-info h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .industry-info p {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .why-us-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-item-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 0.25rem;
+        }
+
+        .why-item-text h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-item-text p {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+        }
+
+        .why-us-img img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* --- MEDIA / PF DECK SECTION --- */
+        .media-section {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .media-section .section-header h2 {
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .media-section .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .media-card {
+            background-color: var(--navy-light);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .media-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .media-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .media-card:hover .media-img-wrapper img {
+            scale: 1.05;
+        }
+
+        .media-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 0.35rem 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 2px;
+        }
+
+        .media-status {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background-color: rgba(11, 34, 64, 0.75);
+            backdrop-filter: blur(4px);
+            color: var(--white);
+            padding: 0.25rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .media-status .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #22C55E;
+            border-radius: 50%;
+        }
+
+        .media-play-btn {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 55px;
+            height: 55px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding-left: 4px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .media-card:hover .media-play-btn {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: scale(1.1);
+        }
+
+        .media-body {
+            padding: 2rem;
+        }
+
+        .media-meta {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .media-body h3 {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .media-link {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .media-link:hover {
+            color: var(--white);
+        }
+
+        /* --- BOOKING INTEGRATION SECTION --- */
+        .booking-section {
+            background-color: var(--white);
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .booking-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-intro p {
+            color: var(--slate-gray);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .booking-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        .booking-points i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 0.25rem;
+        }
+
+        .booking-points h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--navy);
+        }
+
+        .booking-points p {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .calendly-placeholder-embed {
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            height: 700px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background: linear-gradient(rgba(197, 160, 89, 0.95), rgba(197, 160, 89, 0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1800') no-repeat center center/cover;
+            text-align: center;
+            padding: 6rem 0;
+            color: var(--navy);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            color: rgba(11, 34, 64, 0.85);
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: var(--navy-light);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #061224;
+            color: rgba(255, 255, 255, 0.65);
+            padding: 5rem 0 2rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact h4 {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            margin-top: 0.25rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .section-padding { padding: 5rem 0; }
+            .hero h1 { font-size: 2.75rem; }
+            .about-grid, .founder-grid, .why-us-grid, .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image, .founder-image { order: -1; max-width: 500px; margin: 0 auto; }
+            .why-us-img { max-width: 500px; margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            header { background-color: var(--white); padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
+            .logo h1 { color: var(--navy); }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; color: var(--navy); }
+        }
+
+        @media (max-width: 576px) {
+            .container { padding: 0 1.25rem; }
+            .hero h1 { font-size: 2.25rem; }
+            .hero-actions { flex-direction: column; }
+            .section-header h2 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .about-features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <h1>The Pierres <span>Financial</span></h1>
+            </a>
+            <nav class="nav-links" id="navMenu">
+                <a href="#about">About</a>
+                <a href="#story">Our Story</a>
+                <a href="#services">Services</a>
+                <a href="#industries">Who We Help</a>
+                <a href="#why-choose-us">Why Us</a>
+                <a href="#pf-deck">PF Deck</a>
+                <a href="#book-call" class="btn btn-nav">Book Call</a>
+            </nav>
+            <div class="menu-toggle" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tagline">DFW Small Business Bookkeeping</span>
+                <h1>Professional Bookkeeping for Growing Businesses.</h1>
+                <p>We help businesses stay financially organized with reliable bookkeeping and practical financial support tailored for business owners, contractors, and startups.</p>
+                <div class="hero-actions">
+                    <a href="#book-call" class="btn btn-primary">Book a Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="tagline">What We Do</span>
+                    <h2>Your Partner in Financial Clarity and Organization</h2>
+                    <p>The Pierres Financial is a modern bookkeeping company focused on helping businesses reduce everyday financial stress, improve organization, and stay completely tax-season ready.</p>
+                    <p>We work directly with you to replace messy paper trails and unorganized spreadsheets with clear, efficient digital records. Our goal is to handle the tedious tracking details so you can focus entirely on running your business.</p>
+                    <div class="about-features">
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Clean, organized numbers</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Dependable monthly support</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Straightforward digital setups</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Consistent clear workflows</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&q=80&w=800" alt="Clear financial organization workspace">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER / STORY SECTION -->
+    <section id="story" class="section-padding founder-section">
+        <div class="container">
+            <div class="founder-grid">
+                <div class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="The Pierres Financial Founders">
+                </div>
+                <div class="founder-text">
+                    <h2>Our Story</h2>
+                    <p>As a family-owned business, we started The Pierres Financial because we saw firsthand how easily small business owners get buried under receipts, invoices, and confusing transaction logs.</p>
+                    <p>We believe that bookkeeping shouldn't feel like a disconnected corporate service. We bring a human, practical approach to financial tracking—combining professional bookkeeping standards with real, responsive communication.</p>
+                    <p>Whether you are managing a fleet of trucks, running a job site, or launch-readying a local service business, we are committed to helping you protect your margins and keep your operations structured and stress-free.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Bookkeeping Services</h2>
+                <p>Straightforward back-office bookkeeping support to keep your business records clean and updated every month.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-book"></i></div>
+                    <h3>Bookkeeping</h3>
+                    <p>Consistent, accurate tracking and categorization of your business income and operational expenses.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Monthly Financial Reports</h3>
+                    <p>Clear, easy-to-read profit & loss statements and balance sheets delivered predictably every month.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>QuickBooks Support</h3>
+                    <p>Cleanups, regular management, and optimization to make sure your software tracks transactions correctly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Bank Reconciliation</h3>
+                    <p>We cross-reference your statements against your internal records to track down discrepancies immediately.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-receipt"></i></div>
+                    <h3>Expense Tracking</h3>
+                    <p>Organized expense records to help ensure you capitalize on valid deductions when tax time arrives.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h3>Invoice Management</h3>
+                    <p>Help tracking outstanding client balances and processing outgoings to keep your cash flowing smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Payroll Support</h3>
+                    <p>Accurate ledger updates and organized tracking for employee payments and basic payroll adjustments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-folder-tree"></i></div>
+                    <h3>Financial Organization</h3>
+                    <p>Turning loose files and chaotic receipt boxes into a logical, structured system you can easily review.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE HELP SECTION -->
+    <section id="industries" class="section-padding who-we-help">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industries We Serve</h2>
+                <p>We tailor our workflows to fit the specific day-to-day requirements of different local business layouts.</p>
+            </div>
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-truck"></i></div>
+                    <div class="industry-info">
+                        <h3>Trucking Companies</h3>
+                        <p>Managing fuel receipts, state-to-state expenses, and multi-route income sheets cleanly.</p>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <div class="industry-info">
+                        <h3>Contractors & Trades</h3>
+                        <p>Tracking project materials, sub-contractor accounts, and job cost parameters with absolute clarity.</p>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="industry-info">
+                        <h3>Startups & Entrepreneurs</h3>
+                        <p>Establishing proper bookkeeping routines from day one to preserve seed capital data.</p>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+                    <div class="industry-info">
+                        <h3>Service Businesses</h3>
+                        <p>Streamlining client invoicing schedules, recurring revenue inputs, and card processor fees.</p>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-shop"></i></div>
+                    <div class="industry-info">
+                        <h3>Local DFW Businesses</h3>
+                        <p>Providing trusted, nearby business context for operators growing here in Texas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-choose-us" class="section-padding">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content">
+                    <h2>Practical Financial Clarity</h2>
+                    
+                    <div class="why-item">
+                        <div class="why-item-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="why-item-text">
+                            <h3>Trustworthy & Honest Management</h3>
+                            <p>We respect your privacy and manage your confidential financial data using strict, safe security practices.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-item-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="why-item-text">
+                            <h3>Simple Digital Systems</h3>
+                            <p>We use straightforward, paperless cloud bookkeeping setups so you can access your clean records at any time.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-item-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div class="why-item-text">
+                            <h3>Clear, Fast Communication</h3>
+                            <p>No waiting days for a callback. We check in regularly and respond quickly when bookkeeping questions come up.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-us-img">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800" alt="Clear business talk about numbers">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT HUB: PF DECK SECTION -->
+    <section id="pf-deck" class="section-padding media-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>PF Deck</h2>
+                <span class="section-sub-brand">By The Pierres Financial</span>
+                <p>Modern bookkeeping insights, practical business finance discussions, and educational content for growing companies.</p>
+            </div>
+            <div class="media-grid">
+                <!-- Card 1 -->
+                <div class="media-card">
+                    <div class="media-img-wrapper">
+                        <span class="media-tag">PF Deck Podcast</span>
+                        <div class="media-status"><div class="pulse-dot"></div> Now Playing • Ep. 24</div>
+                        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&q=80&w=600" alt="Podcast audio setup preview">
+                        <a href="#" class="media-play-btn"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                    <div class="media-body">
+                        <span class="media-meta">Audio Session • 22 Mins</span>
+                        <h3>Managing Cash Flows in the Trucking Industry</h3>
+                        <a href="#" class="media-link">Listen to Episode <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="media-card">
+                    <div class="media-img-wrapper">
+                        <span class="media-tag">PF Briefing</span>
+                        <div class="media-status">Latest Video Guide</div>
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=600" alt="Short business strategy presentation visual">
+                        <a href="#" class="media-play-btn"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                    <div class="media-body">
+                        <span class="media-meta">Video Briefing • 15 Mins</span>
+                        <h3>3 QuickBooks Setup Mistakes Contractors Can Avoid</h3>
+                        <a href="#" class="media-link">Watch Briefing <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="media-card">
+                    <div class="media-img-wrapper">
+                        <span class="media-tag">PF Insights</span>
+                        <div class="media-status">Featured Discussion</div>
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600" alt="Strategic desk planner framework">
+                        <a href="#" class="media-play-btn"><i class="fa-solid fa-book-open"></i></a>
+                    </div>
+                    <div class="media-body">
+                        <span class="media-meta">Written Analysis • 6 Min Read</span>
+                        <h3>How to Keep Your Small Business Tax-Season Ready All Year</h3>
+                        <a href="#" class="media-link">Read Analysis <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALENDLY BOOKING INTEGRATION SECTION -->
+    <section id="book-call" class="section-padding booking-section">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-intro">
+                    <h2>Schedule a Free Consultation</h2>
+                    <p>Let's talk about your current bookkeeping needs, simplify your financial organization, and find a consistent system that takes the tracking workload off your shoulders.</p>
+                    <ul class="booking-points">
+                        <li>
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <div>
+                                <h4>Find a Time That Works</h4>
+                                <p>Pick a slot on our interactive calendar that fits perfectly into your day.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-clipboard-question"></i>
+                            <div>
+                                <h4>Tell Us About Your Business</h4>
+                                <p>We'll look over your current setup and layout simple steps to fix any recording backlogs.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Active Calendly Embed Container -->
+                <div class="calendly-placeholder-embed">
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/pierresfinancial/30min" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Take Control of Your Business Books</h2>
+                <p>Get in touch with us to clear out accounting clutter and gain peace of mind with steady, structured bookkeeping.</p>
+                <a href="#book-call" class="btn btn-primary">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>The Pierres <span>Financial</span></h3>
+                    <p>Reliable bookkeeping and basic back-office organization to give small business owners clear metrics and real peace of mind.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#pf-deck">PF Deck</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Sectors Served</h4>
+                    <ul>
+                        <li><a href="#industries">Trucking Companies</a></li>
+                        <li><a href="#industries">General Contractors</a></li>
+                        <li><a href="#industries">DFW Businesses</a></li>
+                        <li><a href="#industries">Service Operations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fa-solid fa-envelope"></i> info@thepierresfinancial.com</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Dallas-Fort Worth Metroplex, TX</p>
+                    <p><i class="fa-solid fa-star"></i> <a href="#" style="text-decoration: underline; color: var(--gold);">Google Business Profile Link</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Pierres Financial. All rights reserved.</p>
+                <p>Reliable monthly bookkeeping services for small business operators.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Smooth Dynamic Header Background Shift on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navigation Menu Toggle Setup
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            } else {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.width = '100%';
+                navMenu.style.backgroundColor = '#FFFFFF';
+                navMenu.style.padding = '2rem';
+                navMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.05)';
+                navMenu.style.borderBottom = '1px solid #E2E8F0';
+                
+                const links = navMenu.querySelectorAll('a');
+                links.forEach(l => l.style.color = '#0B2240');
+                
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            }
+        });
+
+        // Close mobile menu on link select execution
+        const navMenuLinks = navMenu.querySelectorAll('a');
+        navMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    navMenu.style.display = 'none';
+                    mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
