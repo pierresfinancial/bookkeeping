@@ -5,13 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pierres Financial | Reliable Bookkeeping & Financial Organization</title>
     <meta name="description" content="Professional, reliable bookkeeping and financial organization for small businesses, contractors, and startups in Texas and the DFW area.">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for clean professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "The Pierres Financial",
+      "description": "Professional bookkeeping and financial organization for small businesses, contractors, and startups in the DFW area.",
+      "url": "https://thepierresfinancial.com",
+      "telephone": "+12144449510",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dallas-Fort Worth",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "32.7767",
+          "longitude": "-96.7970"
+        },
+        "radius": "50000"
+      },
+      "areaServed": ["Dallas", "Fort Worth", "DFW Metroplex", "Texas"],
+      "priceRange": "$$"
+    }
+    </script>
+
     <style>
         :root {
             --navy: #0B2240;
@@ -45,7 +71,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--navy);
             font-weight: 600;
@@ -156,7 +182,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        header.scrolled .logo h1, header.scrolled .nav-links a {
+        header.scrolled .logo h1, header.scrolled .nav-links > a, header.scrolled .dropdown-trigger > a {
             color: var(--navy);
         }
 
@@ -189,17 +215,157 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 2.2rem;
         }
 
-        .nav-links a {
+        .nav-links > a, .dropdown-trigger > a {
             color: var(--white);
             font-size: 0.95rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
-        .nav-links a:hover {
+        .nav-links > a:hover, .dropdown-trigger:hover > a {
             color: var(--gold);
+        }
+
+        /* --- SERVICES DROPDOWN DESIGN --- */
+        .dropdown-trigger {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            width: 580px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(11, 34, 64, 0.1);
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            z-index: 1100;
+        }
+
+        .dropdown-trigger:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        .dropdown-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--gold);
+            transform: translateX(3px);
+        }
+
+        .dropdown-menu i {
+            color: var(--gold);
+            font-size: 0.8rem;
+            width: 14px;
+        }
+
+        /* Dropdown Pricing Section Extension */
+        .dropdown-pricing-section {
+            grid-column: span 2;
+            margin-top: 1rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .dropdown-pricing-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .dropdown-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing-tier-box {
+            background-color: var(--off-white);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .pricing-tier-box:hover {
+            border-color: rgba(197, 160, 89, 0.3);
+            background-color: var(--white);
+        }
+
+        .pricing-tier-box h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate-gray);
+            margin-bottom: 0.15rem;
+        }
+
+        .pricing-tier-box p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .dropdown-pricing-disclaimer {
+            font-size: 0.725rem;
+            color: var(--slate-gray);
+            line-height: 1.4;
+        }
+
+        /* --- REST OF HEADER STYLES --- */
+        .nav-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600 !important;
+            color: var(--gold) !important;
+        }
+
+        header.scrolled .nav-phone {
+            color: var(--navy) !important;
+        }
+        
+        header.scrolled .nav-phone:hover {
+            color: var(--gold) !important;
         }
 
         .btn-nav {
@@ -220,7 +386,7 @@
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(rgba(11, 34, 64, 0.85), rgba(11, 34, 64, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1800') no-repeat center center/cover;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             color: var(--white);
@@ -258,6 +424,35 @@
         .hero-actions {
             display: flex;
             gap: 1rem;
+        }
+
+        /* --- TRUST & SOFTWARE BADGES --- */
+        .trust-badges-section {
+            background-color: var(--off-white);
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badges-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--slate-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .badge-item i {
+            font-size: 1.6rem;
+            color: var(--navy-light);
         }
 
         /* --- ABOUT SECTION --- */
@@ -318,35 +513,6 @@
             width: 100%;
             border-radius: 4px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        /* --- FOUNDER SECTION --- */
-        .founder-section {
-            background-color: var(--off-white);
-        }
-        
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .founder-image img {
-            width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .founder-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .founder-text p {
-            color: var(--slate-gray);
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
         }
 
         /* --- SERVICES SECTION --- */
@@ -439,7 +605,57 @@
             font-size: 0.95rem;
         }
 
+        /* --- PROCESS / HOW IT WORKS SECTION --- */
+        .process-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            position: relative;
+        }
+
+        .process-card {
+            text-align: center;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 4px 10px rgba(11, 34, 64, 0.2);
+        }
+
+        .process-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-card p {
+            color: var(--slate-gray);
+            font-size: 1rem;
+        }
+
         /* --- WHY CHOOSE US SECTION --- */
+        .why-choose-us-section {
+            background-color: var(--off-white);
+        }
+
         .why-us-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -501,6 +717,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2rem;
+            margin-bottom: 4rem;
         }
 
         .media-card {
@@ -628,6 +845,63 @@
 
         .media-link:hover {
             color: var(--white);
+        }
+
+        /* LEAD MAGNET / LEAD CAPTURE FORM */
+        .lead-magnet-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--navy-light);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 6px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .lead-magnet-container h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lead-magnet-container p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .lead-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .lead-input {
+            flex: 1;
+            padding: 0.85rem 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background-color: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .lead-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lead-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .lead-form .btn {
+            white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         /* --- BOOKING INTEGRATION SECTION --- */
@@ -758,6 +1032,7 @@
         .footer-socials {
             display: flex;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .footer-socials a {
@@ -808,6 +1083,10 @@
             gap: 0.75rem;
         }
 
+        .footer-contact p a:hover {
+            color: var(--gold);
+        }
+
         .footer-contact i {
             color: var(--gold);
             margin-top: 0.25rem;
@@ -826,14 +1105,34 @@
         @media (max-width: 992px) {
             .section-padding { padding: 5rem 0; }
             .hero h1 { font-size: 2.75rem; }
-            .about-grid, .founder-grid, .why-us-grid, .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .about-image, .founder-image { order: -1; max-width: 500px; margin: 0 auto; }
+            .about-grid, .why-us-grid, .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image { order: -1; max-width: 500px; margin: 0 auto; }
             .why-us-img { max-width: 500px; margin: 0 auto; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
             header { background-color: var(--white); padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
             .logo h1 { color: var(--navy); }
+            
+            /* Mobile Nav Dropdown Adjustments */
             .nav-links { display: none; }
+            .dropdown-trigger { flex-direction: column; align-items: flex-start; width: 100%; }
+            .dropdown-trigger > a { width: 100%; justify-content: space-between; padding: 0.5rem 0; }
+            .dropdown-menu { 
+                position: static; 
+                transform: none !important; 
+                opacity: 1 !important; 
+                visibility: visible !important; 
+                width: 100%; 
+                grid-template-columns: 1fr; 
+                box-shadow: none; 
+                border: none; 
+                padding: 0.5rem 0 0 1rem;
+                display: none; /* Controlled via JS toggles on mobile */
+            }
+            .dropdown-pricing-grid { grid-template-columns: 1fr; }
+            .dropdown-pricing-section { grid-column: span 1; }
+            
             .menu-toggle { display: block; color: var(--navy); }
+            .lead-form { flex-direction: column; }
         }
 
         @media (max-width: 576px) {
@@ -844,12 +1143,13 @@
             .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
             .about-features { grid-template-columns: 1fr; }
+            .badges-wrapper { justify-content: center; gap: 1.5rem; }
+            .lead-magnet-container { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVIGATION -->
     <header id="main-header">
         <div class="container nav-container">
             <a href="#" class="logo">
@@ -857,11 +1157,54 @@
             </a>
             <nav class="nav-links" id="navMenu">
                 <a href="#about">About</a>
-                <a href="#story">Our Story</a>
-                <a href="#services">Services</a>
+                
+                <div class="dropdown-trigger" id="servicesDropdown">
+                    <a href="#services">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Bookkeeping</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Monthly Financial Reports</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> QuickBooks Setup & Cleanup</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> QuickBooks Support</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Bank & Card Reconciliation</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Expense Tracking</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Accounts Receivable</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Accounts Payable</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Invoice Management</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Payroll Support</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Catch-Up Bookkeeping</a>
+                            <a href="#services"><i class="fa-solid fa-angle-right"></i> Financial Organization</a>
+                        </div>
+                        
+                        <div class="dropdown-pricing-section">
+                            <div class="dropdown-pricing-title">Starting Investment</div>
+                            <div class="dropdown-pricing-grid">
+                                <div class="pricing-tier-box">
+                                    <h5>Small Business</h5>
+                                    <p>From $299/mo</p>
+                                </div>
+                                <div class="pricing-tier-box">
+                                    <h5>Growing Business</h5>
+                                    <p>From $499/mo</p>
+                                </div>
+                                <div class="pricing-tier-box">
+                                    <h5>Established Business</h5>
+                                    <p>From $799/mo</p>
+                                </div>
+                            </div>
+                            <p class="dropdown-pricing-disclaimer">
+                                *Final pricing depends on transaction volume, number of accounts, payroll requirements, and the condition of existing financial records.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="#industries">Who We Help</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#why-choose-us">Why Us</a>
-                <a href="#pf-deck">PF Deck</a>
+                <a href="tel:2144449510" class="nav-phone"><i class="fa-solid fa-phone"></i> (214) 444-9510</a>
                 <a href="#book-call" class="btn btn-nav">Book Call</a>
             </nav>
             <div class="menu-toggle" id="mobileMenuBtn">
@@ -870,7 +1213,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -885,7 +1227,29 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <section class="trust-badges-section">
+        <div class="container">
+            <div class="badges-wrapper">
+                <div class="badge-item">
+                    <i class="fa-solid fa-square-check"></i>
+                    <span>QuickBooks Certified Support</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fa-solid fa-cloud"></i>
+                    <span>100% Secure Cloud Access</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fa-solid fa-shield"></i>
+                    <span>Fully Bonded & Insured</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <span>DFW Local Operations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="section-padding">
         <div class="container">
             <div class="about-grid">
@@ -908,76 +1272,77 @@
         </div>
     </section>
 
-    <!-- FOUNDER / STORY SECTION -->
-    <section id="story" class="section-padding founder-section">
-        <div class="container">
-            <div class="founder-grid">
-                <div class="founder-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="The Pierres Financial Founders">
-                </div>
-                <div class="founder-text">
-                    <h2>Our Story</h2>
-                    <p>As a family-owned business, we started The Pierres Financial because we saw firsthand how easily small business owners get buried under receipts, invoices, and confusing transaction logs.</p>
-                    <p>We believe that bookkeeping shouldn't feel like a disconnected corporate service. We bring a human, practical approach to financial tracking—combining professional bookkeeping standards with real, responsive communication.</p>
-                    <p>Whether you are managing a fleet of trucks, running a job site, or launch-readying a local service business, we are committed to helping you protect your margins and keep your operations structured and stress-free.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
     <section id="services" class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>Our Bookkeeping Services</h2>
-                <p>Straightforward back-office bookkeeping support to keep your business records clean and updated every month.</p>
+                <p>Straightforward bookkeeping and financial organization solutions designed to help business owners stay organized, make informed decisions, and focus on growth.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-book"></i></div>
                     <h3>Bookkeeping</h3>
-                    <p>Consistent, accurate tracking and categorization of your business income and operational expenses.</p>
+                    <p>We record and organize your business income and expenses so your books stay accurate and up to date throughout the year.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
                     <h3>Monthly Financial Reports</h3>
-                    <p>Clear, easy-to-read profit & loss statements and balance sheets delivered predictably every month.</p>
+                    <p>Every month, you'll receive easy-to-understand financial reports that show how your business is performing and where your money is going.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>QuickBooks Setup & Cleanup</h3>
+                    <p>Whether you're new to QuickBooks or your current file needs some attention, we'll help get everything organized and working properly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
                     <h3>QuickBooks Support</h3>
-                    <p>Cleanups, regular management, and optimization to make sure your software tracks transactions correctly.</p>
+                    <p>Have questions about QuickBooks? Need help fixing an issue or understanding a report? We're here to help.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-building-columns"></i></div>
-                    <h3>Bank Reconciliation</h3>
-                    <p>We cross-reference your statements against your internal records to track down discrepancies immediately.</p>
+                    <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>Bank & Credit Card Reconciliation</h3>
+                    <p>We compare your records with your bank and credit card statements to make sure everything matches and nothing is missed.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-receipt"></i></div>
                     <h3>Expense Tracking</h3>
-                    <p>Organized expense records to help ensure you capitalize on valid deductions when tax time arrives.</p>
+                    <p>We help keep your business expenses organized so you always know where your money is going and have the records you need when tax season comes around.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3>Accounts Receivable</h3>
+                    <p>We'll help you keep track of unpaid invoices so you know who owes you money and what payments are still outstanding.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <h3>Accounts Payable</h3>
+                    <p>We help organize and track bills, vendor payments, and due dates so important payments don't slip through the cracks.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                     <h3>Invoice Management</h3>
-                    <p>Help tracking outstanding client balances and processing outgoings to keep your cash flowing smoothly.</p>
+                    <p>Need help creating, sending, and tracking invoices? We'll help keep your billing process organized and running smoothly.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-users"></i></div>
                     <h3>Payroll Support</h3>
-                    <p>Accurate ledger updates and organized tracking for employee payments and basic payroll adjustments.</p>
+                    <p>We help you stay organized with payroll records and support your payroll process so employees are paid accurately and on time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h3>Catch-Up Bookkeeping</h3>
+                    <p>If your books are behind, don't worry. Whether you're a few months behind or a few years behind, we'll help get everything updated and organized.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-folder-tree"></i></div>
                     <h3>Financial Organization</h3>
-                    <p>Turning loose files and chaotic receipt boxes into a logical, structured system you can easily review.</p>
+                    <p>We'll help organize receipts, invoices, statements, and financial documents into a simple system that's easy to manage and easy to find when you need it.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHO WE HELP SECTION -->
     <section id="industries" class="section-padding who-we-help">
         <div class="container">
             <div class="section-header">
@@ -1024,8 +1389,33 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE US SECTION -->
-    <section id="why-choose-us" class="section-padding">
+    <section id="how-it-works" class="section-padding process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Getting Started Is Simple</h2>
+                <p>We've broken down our onboarding into three basic steps so you always know what to expect next.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Book A Call</h3>
+                    <p>Select a slot on our interactive schedule below for a free, no-pressure 30-minute discovery consultation.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Get Your Gameplan</h3>
+                    <p>We review your current software or paper systems and present a transparent, customized monthly proposal.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Enjoy Total Clarity</h3>
+                    <p>We jump in, organize backlogs, and run your monthly accounting engine while you focus on scaling your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="section-padding why-choose-us-section">
         <div class="container">
             <div class="why-us-grid">
                 <div class="why-us-content">
@@ -1062,7 +1452,6 @@
         </div>
     </section>
 
-    <!-- CONTENT HUB: PF DECK SECTION -->
     <section id="pf-deck" class="section-padding media-section">
         <div class="container">
             <div class="section-header">
@@ -1071,53 +1460,58 @@
                 <p>Modern bookkeeping insights, practical business finance discussions, and educational content for growing companies.</p>
             </div>
             <div class="media-grid">
-                <!-- Card 1 -->
                 <div class="media-card">
                     <div class="media-img-wrapper">
                         <span class="media-tag">PF Deck Podcast</span>
-                        <div class="media-status"><div class="pulse-dot"></div> Now Playing • Ep. 24</div>
-                        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&q=80&w=600" alt="Podcast audio setup preview">
+                        <div class="media-status"><div class="pulse-dot"></div> Now Playing 揃 Ep. 24</div>
+                        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&q=80&w=600" alt="Trucking cash flow management podcast session - The Pierres Financial">
                         <a href="#" class="media-play-btn"><i class="fa-solid fa-play"></i></a>
                     </div>
                     <div class="media-body">
-                        <span class="media-meta">Audio Session • 22 Mins</span>
+                        <span class="media-meta">Audio Session 揃 22 Mins</span>
                         <h3>Managing Cash Flows in the Trucking Industry</h3>
                         <a href="#" class="media-link">Listen to Episode <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="media-card">
                     <div class="media-img-wrapper">
                         <span class="media-tag">PF Briefing</span>
                         <div class="media-status">Latest Video Guide</div>
-                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=600" alt="Short business strategy presentation visual">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=600" alt="Quickbooks contractor tracking video guide - The Pierres Financial">
                         <a href="#" class="media-play-btn"><i class="fa-solid fa-play"></i></a>
                     </div>
                     <div class="media-body">
-                        <span class="media-meta">Video Briefing • 15 Mins</span>
+                        <span class="media-meta">Video Briefing 揃 15 Mins</span>
                         <h3>3 QuickBooks Setup Mistakes Contractors Can Avoid</h3>
                         <a href="#" class="media-link">Watch Briefing <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="media-card">
                     <div class="media-img-wrapper">
                         <span class="media-tag">PF Insights</span>
                         <div class="media-status">Featured Discussion</div>
-                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600" alt="Strategic desk planner framework">
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600" alt="Small business tax readiness discussion framework - The Pierres Financial">
                         <a href="#" class="media-play-btn"><i class="fa-solid fa-book-open"></i></a>
                     </div>
                     <div class="media-body">
-                        <span class="media-meta">Written Analysis • 6 Min Read</span>
+                        <span class="media-meta">Written Analysis 揃 6 Min Read</span>
                         <h3>How to Keep Your Small Business Tax-Season Ready All Year</h3>
                         <a href="#" class="media-link">Read Analysis <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
+
+            <div class="lead-magnet-container">
+                <h3>Not ready to book a full call yet?</h3>
+                <p>Download our free <strong>Tax-Season Readiness Checklist for DFW Contractors & Small Businesses</strong> to see exactly where your records stand.</p>
+                <form class="lead-form" onsubmit="event.preventDefault(); alert('Thank you! Your checklist is on its way to your inbox.');">
+                    <input type="email" class="lead-input" placeholder="Enter your business email address" required>
+                    <button type="submit" class="btn btn-primary">Send Me The Checklist</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- CALENDLY BOOKING INTEGRATION SECTION -->
     <section id="book-call" class="section-padding booking-section">
         <div class="container">
             <div class="booking-grid">
@@ -1129,7 +1523,7 @@
                             <i class="fa-solid fa-calendar-check"></i>
                             <div>
                                 <h4>Find a Time That Works</h4>
-                                <p>Pick a slot on our interactive calendar that fits perfectly into your day.</p>
+                                <p>Pick a slot on our interactive calendar that fits perfectly into your day, or reach us directly at <a href="tel:2144449510" style="color: var(--gold); font-weight: 600;">(214) 444-9510</a>.</p>
                             </div>
                         </li>
                         <li>
@@ -1142,18 +1536,14 @@
                     </ul>
                 </div>
                 
-                <!-- Active Calendly Embed Container -->
                 <div class="calendly-placeholder-embed">
-                    <!-- Calendly inline widget begin -->
                     <div class="calendly-inline-widget" data-url="https://calendly.com/pierresfinancial/30min" style="min-width:320px;height:700px;"></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
-                </div>
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
@@ -1164,7 +1554,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1181,8 +1570,8 @@
                     <h4>Navigate</h4>
                     <ul>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#story">Our Story</a></li>
                         <li><a href="#services">Our Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#pf-deck">PF Deck</a></li>
                     </ul>
                 </div>
@@ -1210,7 +1599,6 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
     <script>
         // Smooth Dynamic Header Background Shift on Scroll
         window.addEventListener('scroll', function() {
@@ -1242,19 +1630,35 @@
                 navMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.05)';
                 navMenu.style.borderBottom = '1px solid #E2E8F0';
                 
-                const links = navMenu.querySelectorAll('a');
-                links.forEach(l => l.style.color = '#0B2240');
+                const links = navMenu.querySelectorAll('a, .dropdown-trigger > a');
+                links.forEach(l => {
+                    if(!l.classList.contains('nav-phone')) {
+                        l.style.color = '#0B2240';
+                    }
+                });
                 
                 mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
             }
         });
 
+        // Toggle dropdown sub-menu explicitly on mobile layout click
+        const servicesDropdown = document.getElementById('servicesDropdown');
+        const embeddedMenu = servicesDropdown.querySelector('.dropdown-menu');
+        
+        servicesDropdown.querySelector('a').addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault(); // Halt active link jump so menu can reveal smoothly
+                embeddedMenu.style.display = embeddedMenu.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+
         // Close mobile menu on link select execution
-        const navMenuLinks = navMenu.querySelectorAll('a');
+        const navMenuLinks = navMenu.querySelectorAll('.dropdown-menu a, nav-links > a:not(.dropdown-trigger > a)');
         navMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
                     navMenu.style.display = 'none';
+                    embeddedMenu.style.display = 'none';
                     mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
                 }
             });
